@@ -1,0 +1,125 @@
+{
+  "profile": {
+    "handle": "BB",
+    "name": "Benjamin Bartunek",
+    "title": "Technologist",
+    "tagline": "// CYBERSECURITY · NETWORK ENGINEERING · TELECOMMUNICATIONS //",
+    "location": "United States",
+    "email": "Benjamin@Bartunek.Tech",
+    "phone": "(210) 284-4425",
+    "availability": "Open to opportunities",
+    "links": [
+      { "label": "Email", "url": "mailto:Benjamin@Bartunek.Tech", "icon": "✉" },
+      { "label": "Bartunek.Tech", "url": "https://Bartunek.Tech", "icon": "◈" },
+      { "label": "H3x-Dash", "url": "https://github.com/Null-H3x/h3x-dash", "icon": "⚡" }
+    ]
+  },
+  "stats": [
+    { "label": "MILITARY SERVICE", "value": "16+", "color": "cyan" },
+    { "label": "CERTIFICATIONS", "value": "3", "color": "violet" },
+    { "label": "SYSTEMS MANAGED", "value": "5K+", "color": "green" },
+    { "label": "SIEM COVERAGE", "value": "4K+", "color": "orange" }
+  ],
+  "about": "Motivated, passionate, and technologically diverse professional seeking a dynamic technical role where I can apply strategic networking and cybersecurity skills to organizational success. Driven to enhance network operations, protect against advanced threats, and ensure regulatory compliance across mission-critical systems.",
+  "leadership": "With 16 years of experience in the Army, I have developed a leadership style centered on training subordinates, employing clear communication, and delivering mission-oriented results. I have trained personnel on network-based and non-network-based programs, led systems integration projects while maintaining security and compliance, and mentored teams to foster environments where every member's skill and experience are valued.",
+  "communication": "Adept at translating complex technical concepts into clear, actionable insights for technical teams, leadership, and non-technical stakeholders. I collaborate closely with cross-functional teams to align security initiatives with organizational objectives, lead training sessions across multiple fields, present assessments to executives, and facilitate discussions that drive informed decision-making.",
+  "terminalIntro": [
+    "[H3x-Resume] Initializing profile module...",
+    "[*] Operator: Benjamin Bartunek",
+    "[*] Credentials: SEC+ · CEH · Google Cybersecurity",
+    "[*] Pipeline: RECON → ENUM → VALIDATE → REPORT",
+    "[H3x-Resume] Ready. Scroll or use sidebar to navigate."
+  ],
+  "experienceSummary": [
+    { "label": "Network Administration", "years": "5" },
+    { "label": "Telecommunications Engineer", "years": "7" },
+    { "label": "Electronic Maintenance", "years": "8" },
+    { "label": "Telecommunications Specialist", "years": "10" },
+    { "label": "IT Section Supervisor", "years": "11" },
+    { "label": "Customer Service", "years": "16" }
+  ],
+  "experience": [
+    {
+      "role": "Communications Architect / Telecommunications Specialist / Electronics Technician",
+      "company": "U.S. Army",
+      "period": "Oct 2009 — Present",
+      "location": "USA, Europe, Asia",
+      "summary": "MOS: 25E Electromagnetic Spectrum Manager, 94E Radio Equipment Repairer. 40–105 hours per week across multiple technical duties spanning network engineering, telecommunications, cyber operations, and electronics maintenance.",
+      "highlights": [
+        "Engineered, designed, implemented, and deployed an IP-based pulse emitter radio mesh network to emulate tactical Army ground force signals, enhancing cyber blue team deception operations",
+        "With authorization, planned and executed grey box penetration testing, acquired elevated internal access, and reported findings to drive policy and security improvements",
+        "Deployed and managed SIEM solutions using CentOS, Nessus, Splunk, and downtrace sensor integration across 4,000+ systems",
+        "Provided Tier-3 network support at the Army Cyber Center Southwest Asia, coordinating regional issues, root cause analysis, and vendor liaison for mission-critical infrastructure",
+        "Collaborated on remote nodal network deployment with IPS/IDS sensors, software-defined radio, and enterprise OS virtualization for secure mission-critical connectivity",
+        "Managed Active Directory for 2,000 users including RBAC, group policies, two-factor authentication, and network security controls",
+        "Ensured compliance with host-nation RF spectrum regulations and telecommunication standards across multi-country point-to-point systems",
+        "Engineered and maintained long-distance IP-based communication systems with encryption and network security protocols",
+        "Programmed and managed 5,000+ radio and IP-based communication systems across global organizational assets",
+        "Developed and led training programs on terrestrial network configurations, system architecture, and secure operational usage",
+        "Diagnosed and repaired hardware, performed system testing and calibration, and executed lifecycle upgrades to meet evolving requirements"
+      ],
+      "tags": ["25E", "94E", "SIEM", "Active Directory", "Penetration Testing", "SDR", "Splunk", "Nessus"]
+    }
+  ],
+  "skills": [
+    {
+      "category": "GOVERNANCE & SECURITY",
+      "items": ["Risk Management", "GRC", "NIST / ISO / ISACA / SANS", "SIEM (Splunk)", "Penetration Testing", "Cybersecurity Audits", "Compliance & Physical Security Audits", "Backup & Disaster Recovery", "Access Control (NFC, PIV, PIN, Biometric)"]
+    },
+    {
+      "category": "NETWORK & INFRASTRUCTURE",
+      "items": ["Network Engineering", "Systems Administration", "UniFi / Ubiquiti", "SDN", "L2/L3 Switching", "NVR & Camera Security", "802.11x / Mesh / BLE", "VMware vSphere", "RHEL / CentOS", "Synology NAS", "SolarWinds", "VPN", "IDS/IPS", "Wireshark", "Kubernetes Pi Cluster"]
+    },
+    {
+      "category": "OFFENSIVE & RED TEAM",
+      "items": ["Metasploit Framework", "WiFi Penetration Testing", "Hak5 Ecosystem", "Flipper Zero", "SDR Signal Analysis & Spoofing", "GPS Spoofing", "NFC / RF Physical Security Testing", "OSINT", "Environment Survey", "Kali Linux"]
+    },
+    {
+      "category": "TELECOM & OPERATIONS",
+      "items": ["Point-to-Point IP Systems", "Systems Integration", "Exchange Hosting", "MDM", "Cisco VTC", "ITSM / Helpdesk", "Technical Documentation", "Microsoft 365 / Teams / Visio", "Hardware Troubleshooting", "Cat5–8 / RG11 Cabling"]
+    }
+  ],
+  "certifications": [
+    { "name": "CEH — Certified Ethical Hacker", "issuer": "EC-Council", "year": "Dec 2025" },
+    { "name": "SEC+ — CompTIA Security+", "issuer": "CompTIA", "year": "Feb 2025" },
+    { "name": "Google Cybersecurity Professional", "issuer": "Google", "year": "Aug 2024" }
+  ],
+  "projects": [
+    {
+      "name": "H3x-Dash",
+      "url": "https://github.com/Null-H3x/h3x-dash",
+      "description": "Flask-based penetration testing dashboard automating scan, enumerate, exploit, and loot workflows in a single browser interface.",
+      "tags": ["Python", "Flask", "Metasploit", "Nmap"],
+      "highlight": true
+    },
+    {
+      "name": "Integrated Home Lab",
+      "url": "",
+      "description": "Personal security lab including Kubernetes Pi cluster, Nessus vulnerability scanning, VMware vSphere, IDS/IPS, and containerized services for continuous skill development.",
+      "tags": ["Kubernetes", "VMware", "Nessus", "Automation"],
+      "highlight": false
+    },
+    {
+      "name": "Tactical Radio Mesh Deception Network",
+      "url": "",
+      "description": "IP-based pulse emitter radio mesh network emulating tactical Army ground force signals to support cyber blue team deception operations.",
+      "tags": ["SDR", "Mesh Network", "Blue Team"],
+      "highlight": false
+    },
+    {
+      "name": "Bartunek.Tech Exchange Hosting",
+      "url": "https://Bartunek.Tech",
+      "description": "Self-hosted Exchange email and infrastructure services supporting secure communication and information sharing.",
+      "tags": ["Exchange", "Infrastructure", "Administration"],
+      "highlight": false
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor's Degree in Cyber Security",
+      "school": "University of Maryland Global Campus",
+      "period": "2020",
+      "notes": "Adelphi, MD"
+    }
+  ]
+}

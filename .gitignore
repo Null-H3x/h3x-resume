@@ -1,0 +1,9 @@
+# Local / editor
+.DS_Store
+Thumbs.db
+*.swp
+_extracted.txt
+
+# Source document (content lives in data/resume.json)
+Resume.docx
+resume.docx
