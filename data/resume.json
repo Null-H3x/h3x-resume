@@ -20,9 +20,9 @@
     { "label": "SYSTEMS MANAGED", "value": "5K+", "color": "green" },
     { "label": "SIEM COVERAGE", "value": "4K+", "color": "orange" }
   ],
-  "about": "Motivated, passionate, and technologically diverse professional seeking a dynamic technical role where I can apply strategic networking and cybersecurity skills to organizational success. Driven to enhance network operations, protect against advanced threats, and ensure regulatory compliance across mission-critical systems.",
-  "leadership": "With 16 years of experience in the Army, I have developed a leadership style centered on training subordinates, employing clear communication, and delivering mission-oriented results. I have trained personnel on network-based and non-network-based programs, led systems integration projects while maintaining security and compliance, and mentored teams to foster environments where every member's skill and experience are valued.",
-  "communication": "Adept at translating complex technical concepts into clear, actionable insights for technical teams, leadership, and non-technical stakeholders. I collaborate closely with cross-functional teams to align security initiatives with organizational objectives, lead training sessions across multiple fields, present assessments to executives, and facilitate discussions that drive informed decision-making.",
+  "about": "I am a motivated, passionate, and technologically diverse professional seeking a dynamic technical role where I can apply my strategic networking skills to contribute to organizational success. I am driven to enhance network operations and collaborate on innovative solutions that improve network integrity, protect against advanced threats, and ensure regulatory compliance across mission-critical systems.",
+  "leadership": "With 16 years of experience in the Army, I have developed a leadership style centered on training subordinates, effectively utilizing dynamic technical expertise, employing clear communication, and delivering mission-oriented results. I've had the privilege of training personnel on both network-based and non-network-based programs, ensuring that my subordinates, seniors, and peers are equipped with the skills to handle any technical challenge. As a network engineer, I've successfully led projects that involved systems integration while maintaining security and compliance with regulatory standards. I understand the importance of teamwork and collaboration, and I take pride in mentoring personnel to foster a learning environment where every team member's skill, knowledge, and experience are valued. My leadership is rooted in a deep commitment to continuous learning and improving technological mastery, while always striving to meet the needs of the mission and the organization.",
+  "communication": "I am adept at translating complex technical concepts into clear, actionable insights for diverse audiences, including technical teams, leadership, and non-technical stakeholders. By collaborating closely with cross-functional teams, I ensure security initiatives align with organizational objectives and risk management strategies. I have effectively led training sessions in multiple fields, presented in-depth assessments to executives, and facilitated discussions that drive informed decision-making. My ability to simplify complex topics ensures that all parties are equipped to make proactive and informed decisions.",
   "terminalIntro": [
     "[H3x-Resume] Initializing profile module...",
     "[*] Operator: Benjamin Bartunek",
@@ -51,12 +51,15 @@
         "Deployed and managed SIEM solutions using CentOS, Nessus, Splunk, and downtrace sensor integration across 4,000+ systems",
         "Provided Tier-3 network support at the Army Cyber Center Southwest Asia, coordinating regional issues, root cause analysis, and vendor liaison for mission-critical infrastructure",
         "Collaborated on remote nodal network deployment with IPS/IDS sensors, software-defined radio, and enterprise OS virtualization for secure mission-critical connectivity",
+        "Diagnosed and resolved network-related software and hardware issues remotely using advanced troubleshooting techniques to minimize downtime and maintain uptime",
         "Managed Active Directory for 2,000 users including RBAC, group policies, two-factor authentication, and network security controls",
         "Ensured compliance with host-nation RF spectrum regulations and telecommunication standards across multi-country point-to-point systems",
         "Engineered and maintained long-distance IP-based communication systems with encryption and network security protocols",
         "Programmed and managed 5,000+ radio and IP-based communication systems across global organizational assets",
         "Developed and led training programs on terrestrial network configurations, system architecture, and secure operational usage",
-        "Diagnosed and repaired hardware, performed system testing and calibration, and executed lifecycle upgrades to meet evolving requirements"
+        "Diagnosed and repaired hardware equipment to ensure operational efficiency using specialized tools aligned with material management and maintenance",
+        "Performed system testing, calibration, and component repairs to meet technical and operational standards",
+        "Upgraded system hardware and implemented replacements through proactive lifecycle management to meet evolving requirements"
       ],
       "tags": ["25E", "94E", "SIEM", "Active Directory", "Penetration Testing", "SDR", "Splunk", "Nessus"]
     }
@@ -76,7 +79,7 @@
     },
     {
       "category": "TELECOM & OPERATIONS",
-      "items": ["Point-to-Point IP Systems", "Systems Integration", "Exchange Hosting", "MDM", "Cisco VTC", "ITSM / Helpdesk", "Technical Documentation", "Microsoft 365 / Teams / Visio", "Hardware Troubleshooting", "Cat5–8 / RG11 Cabling"]
+      "items": ["Point-to-Point IP Systems", "Systems Integration", "Exchange Hosting", "MDM", "Cisco VTC", "ITSM / Helpdesk", "Technical Documentation", "Microsoft 365 / Teams / Visio", "Hardware Troubleshooting", "Cat5–8 / RG11 Cabling", "82 WPM @ 100% Accuracy"]
     }
   ],
   "certifications": [

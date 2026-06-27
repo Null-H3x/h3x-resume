@@ -4,7 +4,7 @@ Static resume website in the [H3x-Dash](https://github.com/Null-H3x/h3x-dash) cy
 
 ## Quick start
 
-Edit `data/resume.json`, then upload the project to `public_html` (see [DEPLOY.md](DEPLOY.md)).
+Edit `data/resume.json` for the live site, or update `Resume.docx` and re-sync the JSON. Upload to `public_html` (see [DEPLOY.md](DEPLOY.md)).
 
 Local preview:
 
