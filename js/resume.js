@@ -3,8 +3,7 @@
 const SECTIONS = [
   { id: 'overview', label: 'Overview', icon: '◈' },
   { id: 'experience', label: 'Experience', icon: '◉' },
-  { id: 'skills', label: 'Skills', icon: '⚙' },
-  { id: 'projects', label: 'Projects', icon: '⚡' },
+  { id: 'skills', label: 'Proficiencies', icon: '⚙' },
   { id: 'credentials', label: 'Credentials', icon: '🔑' },
   { id: 'contact', label: 'Contact', icon: '◎' },
 ];
@@ -53,17 +52,22 @@ function renderTerminal(lines) {
   }).join('');
 }
 
-function renderTenure(summary) {
+function renderTenure(summary, hours) {
   const panel = document.getElementById('tenure-panel');
   const el = document.getElementById('tenure-grid');
   if (!panel || !el || !summary?.length) return;
   panel.style.display = '';
-  el.innerHTML = summary.map(row => `
+  let html = '';
+  if (hours) {
+    html += `<div class="tenure-hours">${esc(hours)}</div>`;
+  }
+  html += summary.map(row => `
     <div class="tenure-item">
       <div class="tenure-years">${esc(row.years)} yrs</div>
       <div class="tenure-label">${esc(row.label)}</div>
     </div>
   `).join('');
+  el.innerHTML = html;
 }
 
 function renderExperience(items) {
@@ -76,7 +80,7 @@ function renderExperience(items) {
         <div class="exp-company">${esc(exp.company)}${exp.location ? ` · ${esc(exp.location)}` : ''}</div>
         <div class="exp-period">${esc(exp.period)}</div>
       </div>
-      ${exp.summary ? `<p class="exp-summary">${esc(exp.summary)}</p>` : ''}
+      ${exp.mos ? `<div class="exp-mos">${esc(exp.mos)}</div>` : ''}
       ${exp.highlights?.length ? `
         <ul class="exp-highlights">
           ${exp.highlights.map(h => `<li>${esc(h)}</li>`).join('')}
@@ -102,30 +106,11 @@ function renderSkills(skills) {
   `).join('');
 }
 
-function renderProjects(projects) {
-  const el = document.getElementById('projects-list');
-  if (!el || !projects) return;
-  el.innerHTML = projects.map(p => `
-    <article class="project-card${p.highlight ? ' highlight' : ''}">
-      <div class="project-name">
-        ${p.url
-          ? `<a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">${esc(p.name)} ↗</a>`
-          : esc(p.name)}
-      </div>
-      <p class="project-desc">${esc(p.description)}</p>
-      ${p.tags?.length ? `
-        <div class="tag-row">
-          ${p.tags.map(t => `<span class="badge badge-violet">${esc(t)}</span>`).join('')}
-        </div>` : ''}
-    </article>
-  `).join('');
-}
-
 function renderCerts(certs) {
   const el = document.getElementById('certs-list');
   if (!el) return;
   if (!certs?.length) {
-    el.innerHTML = '<p class="about-text text-muted">Add certifications in data/resume.json</p>';
+    el.innerHTML = '<p class="about-text text-muted">No certifications listed.</p>';
     return;
   }
   el.innerHTML = certs.map(c => `
@@ -141,7 +126,7 @@ function renderEducation(edu) {
   const el = document.getElementById('education-list');
   if (!el) return;
   if (!edu?.length) {
-    el.innerHTML = '<p class="about-text text-muted">Add education in data/resume.json</p>';
+    el.innerHTML = '<p class="about-text text-muted">No education listed.</p>';
     return;
   }
   el.innerHTML = edu.map(e => `
@@ -150,7 +135,7 @@ function renderEducation(edu) {
       <span class="cert-issuer">${esc(e.school)}</span>
       <span class="cert-year">${esc(e.period)}</span>
     </div>
-    ${e.notes ? `<p class="about-text" style="font-size:11px;color:var(--muted);padding-bottom:.5rem">${esc(e.notes)}</p>` : ''}
+    ${e.notes ? `<p class="about-text edu-notes">${esc(e.notes)}</p>` : ''}
   `).join('');
 }
 
@@ -162,19 +147,24 @@ function renderProfile(data) {
   document.getElementById('logo-hex').textContent = esc(p.handle || 'H3');
   document.getElementById('hero-name').textContent = p.name;
   document.getElementById('hero-title').textContent = p.title;
-  document.getElementById('hero-tagline').textContent = p.tagline;
+  document.getElementById('hero-tagline').textContent = p.tagline || '';
   document.getElementById('about-text').textContent = data.about || '';
 
+  const leadershipPanel = document.getElementById('leadership-panel');
+  const communicationPanel = document.getElementById('communication-panel');
   const leadership = document.getElementById('leadership-text');
   const communication = document.getElementById('communication-text');
+
   if (leadership) leadership.textContent = data.leadership || '';
   if (communication) communication.textContent = data.communication || '';
+  if (leadershipPanel) leadershipPanel.style.display = data.leadership ? '' : 'none';
+  if (communicationPanel) communicationPanel.style.display = data.communication ? '' : 'none';
 
   const meta = document.getElementById('hero-meta');
   const parts = [];
   if (p.location) parts.push(`📍 ${esc(p.location)}`);
-  if (p.email) parts.push(`✉ <a href="mailto:${esc(p.email)}">${esc(p.email)}</a>`);
   if (p.phone) parts.push(`☎ ${esc(p.phone)}`);
+  if (p.email) parts.push(`✉ <a href="mailto:${esc(p.email)}">${esc(p.email)}</a>`);
   meta.innerHTML = parts.join(' · ');
 
   const links = document.getElementById('profile-links');
@@ -206,10 +196,9 @@ function renderAll(data) {
   renderProfile(data);
   renderStats(data.stats);
   renderTerminal(data.terminalIntro);
-  renderTenure(data.experienceSummary);
+  renderTenure(data.experienceSummary, data.experienceHours);
   renderExperience(data.experience);
   renderSkills(data.skills);
-  renderProjects(data.projects);
   renderCerts(data.certifications);
   renderEducation(data.education);
 }
@@ -267,7 +256,7 @@ async function loadResume() {
     console.error('[H3x-Resume] Failed to load resume.json:', err);
     const about = document.getElementById('about-text');
     if (about) {
-      about.textContent = 'Could not load data/resume.json. Check that the file was uploaded to your server.';
+      about.textContent = 'Could not load data/resume.json. Run scripts/parse_resume.py after updating Resume.docx.';
     }
   }
 }

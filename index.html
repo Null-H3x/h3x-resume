@@ -53,7 +53,7 @@
 
       <div class="col-2">
         <div class="panel">
-          <div class="panel-header"><span class="accent">▸</span> ABOUT</div>
+          <div class="panel-header"><span class="accent">▸</span> OBJECTIVE</div>
           <div class="panel-body">
             <p class="about-text" id="about-text">Loading profile…</p>
             <div class="link-row" id="profile-links"></div>
@@ -68,13 +68,13 @@
       </div>
 
       <div class="col-2 mt-2">
-        <div class="panel">
+        <div class="panel" id="leadership-panel">
           <div class="panel-header"><span class="accent">▸</span> LEADERSHIP</div>
           <div class="panel-body">
             <p class="about-text" id="leadership-text"></p>
           </div>
         </div>
-        <div class="panel">
+        <div class="panel" id="communication-panel">
           <div class="panel-header"><span class="accent">▸</span> COMMUNICATION</div>
           <div class="panel-body">
             <p class="about-text" id="communication-text"></p>
@@ -101,31 +101,23 @@
     <!-- Skills -->
     <section id="skills">
       <div class="panel">
-        <div class="panel-header"><span class="accent">⚙</span> SKILLS &amp; CAPABILITIES</div>
+        <div class="panel-header"><span class="accent">⚙</span> TECHNICAL PROFICIENCIES</div>
         <div class="panel-body">
           <div class="skill-grid" id="skills-grid"></div>
         </div>
       </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects">
-      <div class="panel">
-        <div class="panel-header"><span class="accent">⚡</span> PROJECTS</div>
-        <div class="panel-body" id="projects-list"></div>
-      </div>
-    </section>
-
-    <!-- Credentials -->
+    <!-- Credentials (Education + Certifications — matches resume order) -->
     <section id="credentials">
       <div class="col-2">
         <div class="panel">
-          <div class="panel-header"><span class="accent">🔑</span> CERTIFICATIONS</div>
-          <div class="panel-body" id="certs-list"></div>
-        </div>
-        <div class="panel">
           <div class="panel-header"><span class="accent">▦</span> EDUCATION</div>
           <div class="panel-body" id="education-list"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-header"><span class="accent">🔑</span> CERTIFICATIONS</div>
+          <div class="panel-body" id="certs-list"></div>
         </div>
       </div>
     </section>
@@ -157,7 +149,7 @@
       </div>
     </section>
 
-    <p class="footer-note">// H3X-RESUME · EDIT data/resume.json TO UPDATE CONTENT //</p>
+    <p class="footer-note">// H3X-RESUME · UPDATE Resume.docx THEN RUN scripts/parse_resume.py //</p>
   </main>
 </div>
 

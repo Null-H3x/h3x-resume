@@ -1,125 +1,243 @@
 {
   "profile": {
-    "handle": "BB",
     "name": "Benjamin Bartunek",
     "title": "Technologist",
-    "tagline": "// CYBERSECURITY · NETWORK ENGINEERING · TELECOMMUNICATIONS //",
-    "location": "United States",
-    "email": "Benjamin@Bartunek.Tech",
     "phone": "(210) 284-4425",
+    "email": "Benjamin@Bartunek.Tech",
+    "handle": "BB",
+    "tagline": "// CYBERSECURITY · NETWORK ENGINEERING · TELECOMMUNICATIONS //",
     "availability": "Open to opportunities",
     "links": [
-      { "label": "Email", "url": "mailto:Benjamin@Bartunek.Tech", "icon": "✉" },
-      { "label": "Bartunek.Tech", "url": "https://Bartunek.Tech", "icon": "◈" },
-      { "label": "H3x-Dash", "url": "https://github.com/Null-H3x/h3x-dash", "icon": "⚡" }
-    ]
+      {
+        "label": "Email",
+        "url": "mailto:Benjamin@Bartunek.Tech",
+        "icon": "✉"
+      },
+      {
+        "label": "Bartunek.Tech",
+        "url": "https://Bartunek.Tech",
+        "icon": "◈"
+      }
+    ],
+    "location": "USA, Europe, Asia"
   },
   "stats": [
-    { "label": "MILITARY SERVICE", "value": "16+", "color": "cyan" },
-    { "label": "CERTIFICATIONS", "value": "3", "color": "violet" },
-    { "label": "SYSTEMS MANAGED", "value": "5K+", "color": "green" },
-    { "label": "SIEM COVERAGE", "value": "4K+", "color": "orange" }
+    {
+      "label": "MILITARY SERVICE",
+      "value": "16+",
+      "color": "cyan"
+    },
+    {
+      "label": "CERTIFICATIONS",
+      "value": "3",
+      "color": "violet"
+    },
+    {
+      "label": "SYSTEMS MANAGED",
+      "value": "5K+",
+      "color": "green"
+    },
+    {
+      "label": "SIEM COVERAGE",
+      "value": "4K+",
+      "color": "orange"
+    }
   ],
   "about": "I am a motivated, passionate, and technologically diverse professional seeking a dynamic technical role where I can apply my strategic networking skills to contribute to organizational success. I am driven to enhance network operations and collaborate on innovative solutions that improve network integrity, protect against advanced threats, and ensure regulatory compliance across mission-critical systems.",
-  "leadership": "With 16 years of experience in the Army, I have developed a leadership style centered on training subordinates, effectively utilizing dynamic technical expertise, employing clear communication, and delivering mission-oriented results. I've had the privilege of training personnel on both network-based and non-network-based programs, ensuring that my subordinates, seniors, and peers are equipped with the skills to handle any technical challenge. As a network engineer, I've successfully led projects that involved systems integration while maintaining security and compliance with regulatory standards. I understand the importance of teamwork and collaboration, and I take pride in mentoring personnel to foster a learning environment where every team member's skill, knowledge, and experience are valued. My leadership is rooted in a deep commitment to continuous learning and improving technological mastery, while always striving to meet the needs of the mission and the organization.",
+  "leadership": "With 16 years of experience in the Army, I have developed a leadership style centered on training subordinates, effectively utilizing dynamic technical expertise, employing clear communication, and delivering mission-oriented results. I’ve had the privilege of training personnel on both network-based and non-network-based programs, ensuring that my subordinates, seniors, and peers are equipped with the skills to handle any technical challenge. As a network engineer, I’ve successfully led projects that involved systems integration while maintaining security and compliance with regulatory standards. I understand the importance of teamwork and collaboration, and I take pride in mentoring personnel to foster a learning environment where every team member’s skill, knowledge, and experience are valued. My leadership is rooted in a deep commitment to continuous learning and improving technological mastery, while always striving to meet the needs of the mission and the organization.",
   "communication": "I am adept at translating complex technical concepts into clear, actionable insights for diverse audiences, including technical teams, leadership, and non-technical stakeholders. By collaborating closely with cross-functional teams, I ensure security initiatives align with organizational objectives and risk management strategies. I have effectively led training sessions in multiple fields, presented in-depth assessments to executives, and facilitated discussions that drive informed decision-making. My ability to simplify complex topics ensures that all parties are equipped to make proactive and informed decisions.",
   "terminalIntro": [
     "[H3x-Resume] Initializing profile module...",
     "[*] Operator: Benjamin Bartunek",
-    "[*] Credentials: SEC+ · CEH · Google Cybersecurity",
+    "[*] Credentials: Google Cybersecurity Professional · SEC+ · CEH",
+    "[*] Scope: authorized environments only",
     "[*] Pipeline: RECON → ENUM → VALIDATE → REPORT",
     "[H3x-Resume] Ready. Scroll or use sidebar to navigate."
   ],
   "experienceSummary": [
-    { "label": "Network Administration", "years": "5" },
-    { "label": "Telecommunications Engineer", "years": "7" },
-    { "label": "Electronic Maintenance", "years": "8" },
-    { "label": "Telecommunications Specialist", "years": "10" },
-    { "label": "IT Section Supervisor", "years": "11" },
-    { "label": "Customer Service", "years": "16" }
+    {
+      "years": "5",
+      "label": "Network Administration"
+    },
+    {
+      "years": "7",
+      "label": "Telecommunications Engineer"
+    },
+    {
+      "years": "8",
+      "label": "Electronic Maintenance"
+    },
+    {
+      "years": "10",
+      "label": "Telecommunications Specialist"
+    },
+    {
+      "years": "11",
+      "label": "IT Section Supervisor"
+    },
+    {
+      "years": "16",
+      "label": "Customer Service"
+    }
   ],
+  "experienceHours": "40-105 hours per week ( Multiple Duties )",
   "experience": [
     {
       "role": "Communications Architect / Telecommunications Specialist / Electronics Technician",
       "company": "U.S. Army",
-      "period": "Oct 2009 — Present",
+      "period": "OCT 2009 – Current",
       "location": "USA, Europe, Asia",
-      "summary": "MOS: 25E Electromagnetic Spectrum Manager, 94E Radio Equipment Repairer. 40–105 hours per week across multiple technical duties spanning network engineering, telecommunications, cyber operations, and electronics maintenance.",
+      "mos": "MOS: 25E – Electromagnetic Spectrum Manager, 94E – Radio Equipment Repairer",
+      "hours": "40-105 hours per week ( Multiple Duties )",
+      "summary": "MOS: 25E – Electromagnetic Spectrum Manager, 94E – Radio Equipment Repairer",
       "highlights": [
-        "Engineered, designed, implemented, and deployed an IP-based pulse emitter radio mesh network to emulate tactical Army ground force signals, enhancing cyber blue team deception operations",
-        "With authorization, planned and executed grey box penetration testing, acquired elevated internal access, and reported findings to drive policy and security improvements",
-        "Deployed and managed SIEM solutions using CentOS, Nessus, Splunk, and downtrace sensor integration across 4,000+ systems",
-        "Provided Tier-3 network support at the Army Cyber Center Southwest Asia, coordinating regional issues, root cause analysis, and vendor liaison for mission-critical infrastructure",
-        "Collaborated on remote nodal network deployment with IPS/IDS sensors, software-defined radio, and enterprise OS virtualization for secure mission-critical connectivity",
-        "Diagnosed and resolved network-related software and hardware issues remotely using advanced troubleshooting techniques to minimize downtime and maintain uptime",
-        "Managed Active Directory for 2,000 users including RBAC, group policies, two-factor authentication, and network security controls",
-        "Ensured compliance with host-nation RF spectrum regulations and telecommunication standards across multi-country point-to-point systems",
-        "Engineered and maintained long-distance IP-based communication systems with encryption and network security protocols",
-        "Programmed and managed 5,000+ radio and IP-based communication systems across global organizational assets",
-        "Developed and led training programs on terrestrial network configurations, system architecture, and secure operational usage",
-        "Diagnosed and repaired hardware equipment to ensure operational efficiency using specialized tools aligned with material management and maintenance",
-        "Performed system testing, calibration, and component repairs to meet technical and operational standards",
-        "Upgraded system hardware and implemented replacements through proactive lifecycle management to meet evolving requirements"
+        "Engineered, designed, implemented, and deployed an IP-based pulse emitter radio mesh network system to emulate tactical Army ground force signals, enhancing cyber blue team deception operations.",
+        "With authorization, planned and executed “Grey Box” penetration testing.  Acquired access to internal systems with elevated privileges.  Reported findings to network administrators encouraging policy and security changes.",
+        "Deployed and managed SIEM (Security Information and Event Management) solutions using CentOS, Nessus, Splunk, and downtrace sensor integration, enhancing network threat detection and incident response capabilities across 4,000+ systems.",
+        "Provided Tier-3 network support at the Army Cyber Center Southwest Asia, coordinating high-priority regional issues, conducting root cause analysis, and ensuring mission-critical infrastructure remained in operation. Acted as a liaison between high command and vendors to ensure timely resolution of complex issues.",
+        "Collaborated with network engineers to deploy and configure remote nodal networks, employing IPS/IDS sensors on edge devices, managed virtual configuration of enterprise-grade operating systems, deployed software-defined radio and other advanced solutions, enhancing system integration, security, and connectivity for remote mission-critical operations.",
+        "Diagnosed and resolved network-related software and hardware issues remotely, using advanced troubleshooting techniques to minimize downtime and maintain uptime. Ensured system stability and network performance optimization across environments.",
+        "Managed and administered Active Directory, overseeing user accounts, role-based access controls, and security policies for 2,000 users. Implemented role-based group policies, two-factor authentication, and network security measures to safeguard against unauthorized access and ensure operational security.",
+        "Ensured compliance with host nation radio frequency spectrum regulations, telecommunication standards, and industry standards serving as the network engineer for terrestrial point-to-point systems, collaborating with cross-functional teams to integrate secure communication channels into seamless and encrypted data transmission across multiple countries and environments.",
+        "Engineered, optimized, and maintained long-distance point-to-point IP-based communication systems, ensuring secure, reliable, and efficient data transmission across various proprietary platforms. Integrated encryption protocols and network security measures to safeguard critical communication channels.",
+        "Engineered, programmed, and managed over 5,000 radio and IP-based communication systems, ensuring seamless connectivity and secure data transmission across global organizational assets. Designed communication infrastructure in compliance with regulatory guidelines and network security protocols.",
+        "Developed and led training programs on terrestrial network configurations, system architecture integration, and operational usage. Empowered teams with the skills to optimize system performance while maintaining secure communications.",
+        "Diagnosed and repaired hardware equipment to ensure operational efficiency. Leveraged troubleshooting with specialized tools and techniques that align with material management, maintenance, and support.",
+        "Performed system testing, calibration, and component repairs to meet technical and operational standards. Ensured functionality and compliance through detailed inspections and adjustments.",
+        "Upgraded system hardware and implemented replacements to meet evolving technical requirements. Enhanced system performance and reliability through proactive planning and execution through lifecycle management."
       ],
-      "tags": ["25E", "94E", "SIEM", "Active Directory", "Penetration Testing", "SDR", "Splunk", "Nessus"]
+      "tags": [
+        "25E",
+        "94E",
+        "SIEM",
+        "Active Directory",
+        "Splunk",
+        "Nessus"
+      ]
     }
   ],
   "skills": [
     {
-      "category": "GOVERNANCE & SECURITY",
-      "items": ["Risk Management", "GRC", "NIST / ISO / ISACA / SANS", "SIEM (Splunk)", "Penetration Testing", "Cybersecurity Audits", "Compliance & Physical Security Audits", "Backup & Disaster Recovery", "Access Control (NFC, PIV, PIN, Biometric)"]
+      "category": "RISK, GOVERNANCE & COMPLIANCE",
+      "items": [
+        "Risk Management",
+        "Governance, Risk & Compliance (GRC)",
+        "NIST, ISO/IEC, ISACA, SANS Guidelines",
+        "Security Information & Event Management (SIEM) (Splunk)",
+        "Penetration Testing & Ethical Hacking",
+        "Cybersecurity Audits",
+        "Compliance Audit",
+        "Physical Security Audits",
+        "Access Control installation & configuration (NFC, PIV, PIN, Biometric)",
+        "Backup & Disaster Recovery Solutions"
+      ]
     },
     {
-      "category": "NETWORK & INFRASTRUCTURE",
-      "items": ["Network Engineering", "Systems Administration", "UniFi / Ubiquiti", "SDN", "L2/L3 Switching", "NVR & Camera Security", "802.11x / Mesh / BLE", "VMware vSphere", "RHEL / CentOS", "Synology NAS", "SolarWinds", "VPN", "IDS/IPS", "Wireshark", "Kubernetes Pi Cluster"]
+      "category": "NETWORK ENGINEERING & SYSTEMS ADMINISTRATION",
+      "items": [
+        "Unifi/Ubiquiti ecosystem for enterprise-level network management",
+        "Software Defined Networking (SDN)",
+        "Layer-3 Switching",
+        "Layer-2 Switching",
+        "Network Video Recording (NVR)",
+        "Access Point (AP) wireless networking",
+        "Bluetooth Low Energy (BLE)",
+        "Wifi (802.11x)",
+        "Mesh Wireless",
+        "Camera security",
+        "Integrated home lab",
+        "Kubernetes Pi Cluster (Containerization)",
+        "Nessus Vulnerability Scanner",
+        "Automation",
+        "VM Server",
+        "Implemented IDS/IPS",
+        "Designed and deployed VMware WSXi vSphere Hypervisor",
+        "Configured Red Hat Enterprise Linux (RHEL) systems",
+        "Synology NAS ecosystems deployment",
+        "Network performance monitoring (SolarWinds)",
+        "Developed VPN configurations for secure remote access",
+        "Network Security & Firewall Configuration",
+        "Operating System hardening",
+        "Network Analysis & Troubleshooting (Wireshark)"
+      ]
     },
     {
-      "category": "OFFENSIVE & RED TEAM",
-      "items": ["Metasploit Framework", "WiFi Penetration Testing", "Hak5 Ecosystem", "Flipper Zero", "SDR Signal Analysis & Spoofing", "GPS Spoofing", "NFC / RF Physical Security Testing", "OSINT", "Environment Survey", "Kali Linux"]
+      "category": "TELECOMMUNICATIONS ENGINEERING",
+      "items": [
+        "Point-to-Point IP Communication Systems",
+        "Systems Integration & Network Protocols"
+      ]
     },
     {
-      "category": "TELECOM & OPERATIONS",
-      "items": ["Point-to-Point IP Systems", "Systems Integration", "Exchange Hosting", "MDM", "Cisco VTC", "ITSM / Helpdesk", "Technical Documentation", "Microsoft 365 / Teams / Visio", "Hardware Troubleshooting", "Cat5–8 / RG11 Cabling", "82 WPM @ 100% Accuracy"]
+      "category": "INFRASTRUCTURE & ADMINISTRATION",
+      "items": [
+        "Exchange Email hosting and exchange services (Bartunek.Tech)",
+        "VMware vSphere (Virtual Machine Management)",
+        "Mobile Device Management (MDM)",
+        "PC & Server Building",
+        "Hardware Troubleshooting & Maintenance",
+        "Cabling & Wiring (Cat5-8, RG11)"
+      ]
+    },
+    {
+      "category": "CYBERSECURITY / ETHICAL HACKING",
+      "items": [
+        "Linux proficiency (Kali, RHEL, CentOS, Debian Distros)",
+        "Conducted WIFI penetration testing",
+        "Proficiency with the Metasploit Framework penetration testing",
+        "Utilized Hak5 ecosystem tools (Red Team Field Kit)",
+        "Pineapple Mark VII",
+        "Rubber Ducky",
+        "Bash Bunny",
+        "O.MG Plug",
+        "O.MG UnBlocker",
+        "O.MG Adapter",
+        "Lan Turtle",
+        "Software Defined Radio (SDR) for signal analysis and spoofing",
+        "GPS spoofing",
+        "NFC Physical security testing through NFC/RF card cloning",
+        "Flipper Zero for testing and enhancing network defense strategies",
+        "Open-Source Intelligence (OSINT) gathering",
+        "Environment Scanning/Survey (WifiMan, Flipper Zero, R&S PR100/PR200)",
+        "Lockpicking"
+      ]
+    },
+    {
+      "category": "COLLABORATION & COMMUNICATION TOOLS",
+      "items": [
+        "Cyber Awareness & Security Training",
+        "IT Helpdesk (ITSM)",
+        "Cisco Video Teleconferencing (VTC)",
+        "Technical Documentation",
+        "Changelog and Reporting",
+        "Microsoft Office 365",
+        "Teams",
+        "Managing information sharing repository",
+        "Microsoft Office 365 (Including Visio)",
+        "82 WPM @ 100% Accuracy"
+      ]
     }
   ],
   "certifications": [
-    { "name": "CEH — Certified Ethical Hacker", "issuer": "EC-Council", "year": "Dec 2025" },
-    { "name": "SEC+ — CompTIA Security+", "issuer": "CompTIA", "year": "Feb 2025" },
-    { "name": "Google Cybersecurity Professional", "issuer": "Google", "year": "Aug 2024" }
-  ],
-  "projects": [
     {
-      "name": "H3x-Dash",
-      "url": "https://github.com/Null-H3x/h3x-dash",
-      "description": "Flask-based penetration testing dashboard automating scan, enumerate, exploit, and loot workflows in a single browser interface.",
-      "tags": ["Python", "Flask", "Metasploit", "Nmap"],
-      "highlight": true
+      "name": "Google Cybersecurity Professional",
+      "issuer": "Google",
+      "year": "Aug 2024"
     },
     {
-      "name": "Integrated Home Lab",
-      "url": "",
-      "description": "Personal security lab including Kubernetes Pi cluster, Nessus vulnerability scanning, VMware vSphere, IDS/IPS, and containerized services for continuous skill development.",
-      "tags": ["Kubernetes", "VMware", "Nessus", "Automation"],
-      "highlight": false
+      "name": "SEC+ — CompTIA Security+",
+      "issuer": "CompTIA",
+      "year": "Feb 2025"
     },
     {
-      "name": "Tactical Radio Mesh Deception Network",
-      "url": "",
-      "description": "IP-based pulse emitter radio mesh network emulating tactical Army ground force signals to support cyber blue team deception operations.",
-      "tags": ["SDR", "Mesh Network", "Blue Team"],
-      "highlight": false
-    },
-    {
-      "name": "Bartunek.Tech Exchange Hosting",
-      "url": "https://Bartunek.Tech",
-      "description": "Self-hosted Exchange email and infrastructure services supporting secure communication and information sharing.",
-      "tags": ["Exchange", "Infrastructure", "Administration"],
-      "highlight": false
+      "name": "CEH — Certified Ethical Hacker",
+      "issuer": "EC-Council",
+      "year": "Dec 2025"
     }
   ],
   "education": [
     {
-      "degree": "Bachelor's Degree in Cyber Security",
+      "degree": "Bachelor’s Degree in Cyber Security",
       "school": "University of Maryland Global Campus",
       "period": "2020",
       "notes": "Adelphi, MD"
