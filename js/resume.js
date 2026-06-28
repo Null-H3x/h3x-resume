@@ -8,9 +8,32 @@ const SECTIONS = [
 ];
 
 const EXP_SECTIONS = [
-  { key: 'cyber', label: 'CYBER' },
   { key: 'network', label: 'NETWORK' },
+  { key: 'cyber', label: 'CYBER' },
   { key: 'management', label: 'MANAGEMENT' },
+];
+
+const BOOT_DUMMY_LINES = [
+  { text: '[H3x-Resume] Initializing candidate discovery protocol...', cls: 't-info' },
+  { text: '[*] Mounting /dev/resume0 partition... OK', cls: 't-dim' },
+  { text: '[*] Loading credential store........ OK', cls: 't-dim' },
+  { text: '[*] Parsing experience matrix....... OK', cls: 't-dim' },
+  { text: '[*] Indexing technical proficiencies OK', cls: 't-dim' },
+  { text: '[*] Handshake: SIEM telemetry....... OK', cls: 't-dim' },
+  { text: '[*] Handshake: network topology..... OK', cls: 't-dim' },
+  { text: '[*] Verifying clearance flags....... OK', cls: 't-dim' },
+  { text: '[*] Decrypting MOS metadata......... OK', cls: 't-dim' },
+  { text: '[*] Spinning up GitHub mirror....... OK', cls: 't-dim' },
+  { text: '[*] Compiling leadership module..... OK', cls: 't-dim' },
+  { text: '[*] Compiling communication module.. OK', cls: 't-dim' },
+  { text: '[*] Running integrity checksum...... OK', cls: 't-dim' },
+  { text: '[*] Scanning for technology wizard.. DETECTED', cls: 't-warn' },
+  { text: '[*] Cross-referencing certifications OK', cls: 't-dim' },
+  { text: '[*] Hydrating tenure timeline....... OK', cls: 't-dim' },
+  { text: '[*] Mapping cyber / network / mgmt.. OK', cls: 't-dim' },
+  { text: '[*] Applying syntax highlighting.... OK', cls: 't-dim' },
+  { text: '[*] Finalizing profile render....... OK', cls: 't-dim' },
+  { text: '[H3x-Resume] PROFILE FOUND', cls: 't-ok' },
 ];
 
 const HIGHLIGHT_KEYWORDS = [
@@ -371,6 +394,88 @@ function initMenuToggle() {
   btn.addEventListener('click', () => sidebar.classList.toggle('open'));
 }
 
+function unlockPage() {
+  document.body.classList.remove('boot-locked');
+  const wizard = document.getElementById('wizard-modal');
+  const boot = document.getElementById('boot-overlay');
+  if (wizard) wizard.hidden = true;
+  if (boot) boot.hidden = true;
+}
+
+function showWizardDecline() {
+  const modal = document.querySelector('#wizard-modal .boot-modal');
+  if (!modal) return;
+  modal.innerHTML = `
+    <div class="boot-modal-icon">✕</div>
+    <div class="boot-modal-title">ACCESS DECLINED</div>
+    <div class="boot-modal-sub">// NON-WIZARD TRAJECTORY DETECTED //</div>
+    <p class="boot-modal-prompt">No problem — conventional candidates are everywhere. This profile is reserved for teams seeking a technology wizard.</p>
+    <div class="boot-modal-btns">
+      <button type="button" class="btn btn-cyan" id="wizard-retry">↺ TRY AGAIN</button>
+    </div>`;
+  document.getElementById('wizard-retry')?.addEventListener('click', () => location.reload());
+}
+
+function runBootSequence(onDone) {
+  const overlay = document.getElementById('boot-overlay');
+  const term = document.getElementById('boot-terminal');
+  const wizard = document.getElementById('wizard-modal');
+  if (!overlay || !term) {
+    onDone();
+    return;
+  }
+
+  if (wizard) wizard.hidden = true;
+  overlay.hidden = false;
+  term.innerHTML = '';
+
+  const totalMs = 8000;
+  const lines = BOOT_DUMMY_LINES;
+  const stepMs = Math.floor(totalMs / lines.length);
+  let i = 0;
+
+  function appendLine(line) {
+    const span = document.createElement('span');
+    span.className = line.cls || '';
+    span.textContent = line.text + '\n';
+    term.appendChild(span);
+    term.scrollTop = term.scrollHeight;
+  }
+
+  const timer = setInterval(() => {
+    if (i >= lines.length) {
+      clearInterval(timer);
+      setTimeout(onDone, 400);
+      return;
+    }
+    appendLine(lines[i]);
+    i += 1;
+  }, stepMs);
+}
+
+function initWizardGate() {
+  const wizard = document.getElementById('wizard-modal');
+  const yesBtn = document.getElementById('wizard-yes');
+  const noBtn = document.getElementById('wizard-no');
+
+  if (sessionStorage.getItem('h3x_resume_boot')) {
+    unlockPage();
+    return;
+  }
+
+  document.body.classList.add('boot-locked');
+  if (wizard) wizard.hidden = false;
+
+  yesBtn?.addEventListener('click', () => {
+    runBootSequence(() => {
+      sessionStorage.setItem('h3x_resume_boot', '1');
+      unlockPage();
+    });
+  });
+
+  noBtn?.addEventListener('click', showWizardDecline);
+}
+
 async function loadResume() {
   try {
     const res = await fetch('data/resume.json');
@@ -388,6 +493,7 @@ async function loadResume() {
 
 document.addEventListener('DOMContentLoaded', () => {
   renderNav();
+  initWizardGate();
   loadResume();
   initScrollSpy();
   initClock();

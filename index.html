@@ -10,9 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="boot-locked">
 
-<aside class="sidebar" id="sidebar">
+<aside class="sidebar app-shell" id="sidebar">
   <div class="sidebar-logo">
     <div class="logo-icon"><span class="logo-hex" id="logo-hex">H3</span></div>
     <div class="logo-name"><span>H3x</span>-Resume</div>
@@ -24,18 +24,21 @@
     <div id="nav-links"></div>
   </nav>
 
-  <div class="sidebar-contact">
-    <div class="contact-label">CONTACT</div>
-    <a href="mailto:Resume@Bartunek.Tech">Resume@Bartunek.Tech</a>
-  </div>
-
-  <div class="status-badge">
-    <div class="badge-label">STATUS</div>
-    <div class="badge-val" id="availability-val">Loading…</div>
+  <div class="sidebar-footer">
+    <div class="status-badge">
+      <div class="badge-label">CONTACT</div>
+      <div class="badge-val badge-val-link">
+        <a href="mailto:Resume@Bartunek.Tech">Resume@Bartunek.Tech</a>
+      </div>
+    </div>
+    <div class="status-badge">
+      <div class="badge-label">STATUS</div>
+      <div class="badge-val" id="availability-val">Loading…</div>
+    </div>
   </div>
 </aside>
 
-<div class="main">
+<div class="main app-shell" id="app-shell">
   <header class="topbar">
     <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu">☰</button>
     <div class="topbar-title"><span>◈</span> Professional Profile</div>
@@ -130,6 +133,28 @@
 
     <p class="footer-note">// H3X-RESUME · UPDATE Resume.docx THEN RUN scripts/parse_resume.py //</p>
   </main>
+</div>
+
+<!-- Wizard gate -->
+<div class="boot-overlay" id="wizard-modal">
+  <div class="boot-modal">
+    <div class="boot-modal-icon">◈</div>
+    <div class="boot-modal-title">CANDIDATE DISCOVERY PROTOCOL</div>
+    <div class="boot-modal-sub">// H3X-RESUME ACCESS GATE //</div>
+    <p class="boot-modal-prompt">Are you searching for a technology wizard?</p>
+    <div class="boot-modal-btns">
+      <button type="button" class="btn btn-green" id="wizard-yes">✓ YES — INIT PROFILE</button>
+      <button type="button" class="btn btn-red" id="wizard-no">✕ NO — EXIT</button>
+    </div>
+  </div>
+</div>
+
+<!-- Boot sequence -->
+<div class="boot-overlay boot-overlay-seq" id="boot-overlay" hidden>
+  <div class="boot-terminal-wrap">
+    <div class="boot-terminal-head">// INITIALIZATION SEQUENCE //</div>
+    <div class="boot-terminal" id="boot-terminal"></div>
+  </div>
 </div>
 
 <script src="js/resume.js"></script>
