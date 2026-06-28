@@ -638,6 +638,19 @@ body.boot-locked .app-shell {
 .boot-terminal .t-dim { color: var(--muted); }
 .boot-terminal .t-ok { color: var(--green); font-weight: 700; }
 
+.boot-seq-btns {
+  display: flex;
+  gap: .5rem;
+  padding: .75rem 1rem;
+  border-top: 1px solid var(--border);
+  background: var(--surface2);
+}
+
+.boot-seq-btns .btn {
+  flex: 1;
+  justify-content: center;
+}
+
 .kw {
   color: var(--cyan);
   font-weight: 500;
