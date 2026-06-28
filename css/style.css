@@ -493,6 +493,12 @@ section { scroll-margin-top: 4rem; margin-bottom: 2rem; }
 
 .exp-subsection:first-of-type { margin-top: .5rem; }
 
+.exp-subsection .exp-highlights {
+  color: #e8f0f6;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
 .exp-sub-head {
   font-family: var(--head);
   font-size: 12px;
@@ -625,6 +631,17 @@ body.boot-locked .app-shell {
   color: var(--cyan);
   font-weight: 500;
   text-shadow: 0 0 10px rgba(15, 240, 252, .3);
+}
+
+.exp-highlights .kw {
+  display: inline;
+  padding: .12rem .4rem;
+  margin: 0 .08rem;
+  border: 1px solid rgba(15, 240, 252, .35);
+  border-radius: 3px;
+  background: rgba(15, 240, 252, .08);
+  box-shadow: 0 0 8px rgba(15, 240, 252, .1);
+  line-height: 1.8;
 }
 
 .tag-row {

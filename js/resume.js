@@ -37,30 +37,70 @@ const BOOT_DUMMY_LINES = [
 ];
 
 const HIGHLIGHT_KEYWORDS = [
+  'collaborating with cross-functional teams',
+  'planned and executed \u201CGrey Box\u201D penetration testing',
+  'encouraging policy and security changes',
+  'Army Cyber Center Southwest Asia',
+  'advanced troubleshooting techniques',
+  'Designed communication infrastructure',
+  'IP-based communication systems',
+  'network performance optimization',
+  'system architecture integration',
+  'Diagnosed and repaired hardware',
+  'downtrace sensor integration',
   'Security Information & Event Management',
-  'Grey Box',
-  'penetration testing',
-  'software-defined radio',
-  'Army Cyber Center',
+  'two-factor authentication',
   'role-based access controls',
   'role-based group policies',
-  'two-factor authentication',
+  'network security measures',
+  'optimize system performance',
+  'secure data transmission',
+  'remote mission-critical operations',
+  'remote nodal networks',
+  'proprietary platforms',
+  'encryption protocols',
+  'terrestrial network configurations',
+  'virtual configuration',
+  'minimize downtime',
+  'maintain uptime',
+  'industry standards',
+  'encrypted data',
+  'network engineer',
+  'proactive planning',
+  'timely resolution',
   'root cause analysis',
-  'blue team',
   'Active Directory',
-  'IP-based',
+  'led training programs',
+  '4,000+ systems',
+  'access controls',
+  'group policies',
+  'network security',
   'mesh network',
+  'edge devices',
+  'reported findings',
+  'user accounts',
+  '2,000 users',
+  'sensor integration',
+  'penetration testing',
+  'blue team',
   'IPS/IDS',
+  'troubleshooting',
+  'compliance',
+  'regulations',
   'CentOS',
   'Nessus',
   'Splunk',
-  'SIEM',
-  'downtrace',
-  'encryption',
   'Tier-3',
-  '4,000+',
+  'standards',
   '5,000',
-  '2,000',
+  'hardware',
+  'Upgraded',
+  'vendors',
+  'support',
+  'remote',
+  'SIEM',
+  'usage',
+  '\u201CGrey Box\u201D',
 ].sort((a, b) => b.length - a.length);
 
 function esc(str) {
@@ -70,12 +110,33 @@ function esc(str) {
   return d.innerHTML;
 }
 
+function keywordPattern(kw) {
+  const escaped = kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  if (/^[A-Za-z0-9]+$/.test(kw)) return `\\b${escaped}\\b`;
+  return escaped;
+}
+
 function highlightText(text) {
-  let html = esc(text);
+  const ranges = [];
   for (const kw of HIGHLIGHT_KEYWORDS) {
-    const pattern = kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    html = html.replace(new RegExp(pattern, 'gi'), m => `<span class="kw">${m}</span>`);
+    const re = new RegExp(keywordPattern(kw), 'gi');
+    let match;
+    while ((match = re.exec(text)) !== null) {
+      const start = match.index;
+      const end = start + match[0].length;
+      const overlaps = ranges.some(r => start < r.end && end > r.start);
+      if (!overlaps) ranges.push({ start, end, text: match[0] });
+    }
   }
+  ranges.sort((a, b) => a.start - b.start);
+  let html = '';
+  let last = 0;
+  for (const r of ranges) {
+    html += esc(text.slice(last, r.start));
+    html += `<span class="kw">${esc(r.text)}</span>`;
+    last = r.end;
+  }
+  html += esc(text.slice(last));
   return html;
 }
 
