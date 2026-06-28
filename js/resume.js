@@ -5,14 +5,55 @@ const SECTIONS = [
   { id: 'experience', label: 'Experience', icon: '◉' },
   { id: 'skills', label: 'Proficiencies', icon: '⚙' },
   { id: 'credentials', label: 'Credentials', icon: '🔑' },
-  { id: 'contact', label: 'Contact', icon: '◎' },
 ];
+
+const EXP_SECTIONS = [
+  { key: 'cyber', label: 'CYBER' },
+  { key: 'network', label: 'NETWORK' },
+  { key: 'management', label: 'MANAGEMENT' },
+];
+
+const HIGHLIGHT_KEYWORDS = [
+  'Security Information & Event Management',
+  'Grey Box',
+  'penetration testing',
+  'software-defined radio',
+  'Army Cyber Center',
+  'role-based access controls',
+  'role-based group policies',
+  'two-factor authentication',
+  'root cause analysis',
+  'blue team',
+  'Active Directory',
+  'IP-based',
+  'mesh network',
+  'IPS/IDS',
+  'CentOS',
+  'Nessus',
+  'Splunk',
+  'SIEM',
+  'downtrace',
+  'encryption',
+  'Tier-3',
+  '4,000+',
+  '5,000',
+  '2,000',
+].sort((a, b) => b.length - a.length);
 
 function esc(str) {
   if (str == null) return '';
   const d = document.createElement('div');
   d.textContent = str;
   return d.innerHTML;
+}
+
+function highlightText(text) {
+  let html = esc(text);
+  for (const kw of HIGHLIGHT_KEYWORDS) {
+    const pattern = kw.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    html = html.replace(new RegExp(pattern, 'gi'), m => `<span class="kw">${m}</span>`);
+  }
+  return html;
 }
 
 function badgeClass(color) {
@@ -42,7 +83,7 @@ function renderStats(stats) {
 }
 
 function renderTerminal(lines) {
-  const el = document.getElementById('terminal-intro');
+  const el = document.getElementById('terminal-init');
   if (!el || !lines) return;
   el.innerHTML = lines.map(line => {
     let cls = '';
@@ -70,6 +111,21 @@ function renderTenure(summary, hours) {
   el.innerHTML = html;
 }
 
+function renderExpSections(sections) {
+  if (!sections) return '';
+  return EXP_SECTIONS.map(({ key, label }) => {
+    const items = sections[key];
+    if (!items?.length) return '';
+    return `
+      <div class="exp-subsection">
+        <div class="exp-sub-head">${label}</div>
+        <ul class="exp-highlights">
+          ${items.map(h => `<li>${highlightText(h)}</li>`).join('')}
+        </ul>
+      </div>`;
+  }).join('');
+}
+
 function renderExperience(items) {
   const el = document.getElementById('experience-list');
   if (!el || !items) return;
@@ -80,15 +136,12 @@ function renderExperience(items) {
         <div class="exp-company">${esc(exp.company)}${exp.location ? ` · ${esc(exp.location)}` : ''}</div>
         <div class="exp-period">${esc(exp.period)}</div>
       </div>
-      ${exp.mos ? `<div class="exp-mos">${esc(exp.mos)}</div>` : ''}
-      ${exp.highlights?.length ? `
+      ${exp.mos ? `<div class="exp-mos">${highlightText(exp.mos)}</div>` : ''}
+      ${exp.sections ? renderExpSections(exp.sections) : ''}
+      ${!exp.sections && exp.highlights?.length ? `
         <ul class="exp-highlights">
-          ${exp.highlights.map(h => `<li>${esc(h)}</li>`).join('')}
+          ${exp.highlights.map(h => `<li>${highlightText(h)}</li>`).join('')}
         </ul>` : ''}
-      ${exp.tags?.length ? `
-        <div class="tag-row">
-          ${exp.tags.map(t => `<span class="badge badge-info">${esc(t)}</span>`).join('')}
-        </div>` : ''}
     </article>
   `).join('');
 }
@@ -99,11 +152,94 @@ function renderSkills(skills) {
   el.innerHTML = skills.map(block => `
     <div class="skill-block">
       <div class="skill-cat">${esc(block.category)}</div>
-      <div class="skill-items">
-        ${block.items.map(item => `<span class="badge badge-green">${esc(item)}</span>`).join('')}
-      </div>
+      <ul class="skill-items">
+        ${block.items.map(item => `<li>${esc(item)}</li>`).join('')}
+      </ul>
     </div>
   `).join('');
+}
+
+function renderGithubStatic(gh) {
+  const el = document.getElementById('github-panel');
+  if (!el || !gh) {
+    if (el) el.innerHTML = '';
+    return;
+  }
+
+  const repos = gh.repos || [];
+  el.innerHTML = `
+    <div class="github-block">
+      <div class="github-block-head">
+        <div class="github-user">
+          <a href="${esc(gh.url)}" target="_blank" rel="noopener noreferrer">◈ ${esc(gh.user)} ↗</a>
+        </div>
+      </div>
+      <div class="github-stats-row" id="github-stats-row">
+        <span class="github-stat">PUBLIC REPOS: <strong>${esc(String(gh.publicRepos ?? repos.length))}</strong></span>
+      </div>
+      <div id="github-repos-list">
+        ${repos.map(r => `
+          <div class="github-repo">
+            <div class="github-repo-name">
+              <a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.name)} ↗</a>
+            </div>
+            ${r.description ? `<div class="github-repo-meta">${esc(r.description)}</div>` : ''}
+            <div class="github-repo-meta">
+              ${r.language ? `LANG: ${esc(r.language)} · ` : ''}★ ${esc(String(r.stars ?? 0))} · ⑂ ${esc(String(r.forks ?? 0))}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>`;
+}
+
+async function refreshGithubLive(gh) {
+  if (!gh?.user) return;
+  try {
+    const [userRes, ...repoRes] = await Promise.all([
+      fetch(`https://api.github.com/users/${gh.user}`),
+      ...(gh.repos || []).map(r =>
+        fetch(`https://api.github.com/repos/${gh.user}/${r.name}`)
+      ),
+    ]);
+    if (userRes.ok) {
+      const user = await userRes.json();
+      const statsEl = document.getElementById('github-stats-row');
+      if (statsEl) {
+        statsEl.innerHTML = `
+          <span class="github-stat">PUBLIC REPOS: <strong>${esc(String(user.public_repos))}</strong></span>
+          <span class="github-stat">FOLLOWERS: <strong>${esc(String(user.followers))}</strong></span>`;
+      }
+    }
+    const listEl = document.getElementById('github-repos-list');
+    if (!listEl) return;
+    const updated = await Promise.all(
+      (gh.repos || []).map(async (r, i) => {
+        const res = repoRes[i];
+        if (!res?.ok) return r;
+        const live = await res.json();
+        return {
+          ...r,
+          stars: live.stargazers_count,
+          forks: live.forks_count,
+          language: live.language || r.language,
+        };
+      })
+    );
+    listEl.innerHTML = updated.map(r => `
+      <div class="github-repo">
+        <div class="github-repo-name">
+          <a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.name)} ↗</a>
+        </div>
+        ${r.description ? `<div class="github-repo-meta">${esc(r.description)}</div>` : ''}
+        <div class="github-repo-meta">
+          ${r.language ? `LANG: ${esc(r.language)} · ` : ''}★ ${esc(String(r.stars ?? 0))} · ⑂ ${esc(String(r.forks ?? 0))}
+        </div>
+      </div>
+    `).join('');
+  } catch {
+    /* keep static fallback */
+  }
 }
 
 function renderCerts(certs) {
@@ -163,7 +299,6 @@ function renderProfile(data) {
   const meta = document.getElementById('hero-meta');
   const parts = [];
   if (p.location) parts.push(`📍 ${esc(p.location)}`);
-  if (p.phone) parts.push(`☎ ${esc(p.phone)}`);
   if (p.email) parts.push(`✉ <a href="mailto:${esc(p.email)}">${esc(p.email)}</a>`);
   meta.innerHTML = parts.join(' · ');
 
@@ -178,18 +313,6 @@ function renderProfile(data) {
 
   const avail = document.getElementById('availability-val');
   if (avail) avail.textContent = p.availability || 'Available';
-
-  document.getElementById('contact-email').innerHTML =
-    p.email ? `<a class="val" href="mailto:${esc(p.email)}">${esc(p.email)}</a>` : '—';
-  document.getElementById('contact-phone').textContent = p.phone || '—';
-  document.getElementById('contact-location').textContent = p.location || '—';
-
-  const contactLinks = document.getElementById('contact-links');
-  if (contactLinks && p.links?.length) {
-    contactLinks.innerHTML = p.links.map(l =>
-      `<a class="btn btn-green" href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.label)} ↗</a>`
-    ).join('');
-  }
 }
 
 function renderAll(data) {
@@ -198,9 +321,11 @@ function renderAll(data) {
   renderTerminal(data.terminalIntro);
   renderTenure(data.experienceSummary, data.experienceHours);
   renderExperience(data.experience);
+  renderGithubStatic(data.github);
   renderSkills(data.skills);
   renderCerts(data.certifications);
   renderEducation(data.education);
+  refreshGithubLive(data.github);
 }
 
 function initScrollSpy() {

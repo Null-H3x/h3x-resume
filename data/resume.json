@@ -2,21 +2,25 @@
   "profile": {
     "name": "Benjamin Bartunek",
     "title": "Technologist",
-    "phone": "(210) 284-4425",
-    "email": "Benjamin@Bartunek.Tech",
+    "email": "Resume@Bartunek.Tech",
     "handle": "BB",
     "tagline": "// CYBERSECURITY · NETWORK ENGINEERING · TELECOMMUNICATIONS //",
     "availability": "Open to opportunities",
     "links": [
       {
         "label": "Email",
-        "url": "mailto:Benjamin@Bartunek.Tech",
+        "url": "mailto:Resume@Bartunek.Tech",
         "icon": "✉"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/Null-H3x",
+        "icon": "◈"
       },
       {
         "label": "Bartunek.Tech",
         "url": "https://Bartunek.Tech",
-        "icon": "◈"
+        "icon": "◉"
       }
     ],
     "location": "USA, Europe, Asia"
@@ -49,7 +53,7 @@
   "terminalIntro": [
     "[H3x-Resume] Initializing profile module...",
     "[*] Operator: Benjamin Bartunek",
-    "[*] Credentials: Google Cybersecurity Professional · SEC+ · CEH",
+    "[*] Credentials: Google Cybersecurity · SEC+ · CEH Course",
     "[*] Scope: authorized environments only",
     "[*] Pipeline: RECON → ENUM → VALIDATE → REPORT",
     "[H3x-Resume] Ready. Scroll or use sidebar to navigate."
@@ -89,33 +93,53 @@
       "location": "USA, Europe, Asia",
       "mos": "MOS: 25E – Electromagnetic Spectrum Manager, 94E – Radio Equipment Repairer",
       "hours": "40-105 hours per week ( Multiple Duties )",
-      "summary": "MOS: 25E – Electromagnetic Spectrum Manager, 94E – Radio Equipment Repairer",
-      "highlights": [
-        "Engineered, designed, implemented, and deployed an IP-based pulse emitter radio mesh network system to emulate tactical Army ground force signals, enhancing cyber blue team deception operations.",
-        "With authorization, planned and executed “Grey Box” penetration testing.  Acquired access to internal systems with elevated privileges.  Reported findings to network administrators encouraging policy and security changes.",
-        "Deployed and managed SIEM (Security Information and Event Management) solutions using CentOS, Nessus, Splunk, and downtrace sensor integration, enhancing network threat detection and incident response capabilities across 4,000+ systems.",
-        "Provided Tier-3 network support at the Army Cyber Center Southwest Asia, coordinating high-priority regional issues, conducting root cause analysis, and ensuring mission-critical infrastructure remained in operation. Acted as a liaison between high command and vendors to ensure timely resolution of complex issues.",
-        "Collaborated with network engineers to deploy and configure remote nodal networks, employing IPS/IDS sensors on edge devices, managed virtual configuration of enterprise-grade operating systems, deployed software-defined radio and other advanced solutions, enhancing system integration, security, and connectivity for remote mission-critical operations.",
-        "Diagnosed and resolved network-related software and hardware issues remotely, using advanced troubleshooting techniques to minimize downtime and maintain uptime. Ensured system stability and network performance optimization across environments.",
-        "Managed and administered Active Directory, overseeing user accounts, role-based access controls, and security policies for 2,000 users. Implemented role-based group policies, two-factor authentication, and network security measures to safeguard against unauthorized access and ensure operational security.",
-        "Ensured compliance with host nation radio frequency spectrum regulations, telecommunication standards, and industry standards serving as the network engineer for terrestrial point-to-point systems, collaborating with cross-functional teams to integrate secure communication channels into seamless and encrypted data transmission across multiple countries and environments.",
-        "Engineered, optimized, and maintained long-distance point-to-point IP-based communication systems, ensuring secure, reliable, and efficient data transmission across various proprietary platforms. Integrated encryption protocols and network security measures to safeguard critical communication channels.",
-        "Engineered, programmed, and managed over 5,000 radio and IP-based communication systems, ensuring seamless connectivity and secure data transmission across global organizational assets. Designed communication infrastructure in compliance with regulatory guidelines and network security protocols.",
-        "Developed and led training programs on terrestrial network configurations, system architecture integration, and operational usage. Empowered teams with the skills to optimize system performance while maintaining secure communications.",
-        "Diagnosed and repaired hardware equipment to ensure operational efficiency. Leveraged troubleshooting with specialized tools and techniques that align with material management, maintenance, and support.",
-        "Performed system testing, calibration, and component repairs to meet technical and operational standards. Ensured functionality and compliance through detailed inspections and adjustments.",
-        "Upgraded system hardware and implemented replacements to meet evolving technical requirements. Enhanced system performance and reliability through proactive planning and execution through lifecycle management."
-      ],
-      "tags": [
-        "25E",
-        "94E",
-        "SIEM",
-        "Active Directory",
-        "Splunk",
-        "Nessus"
-      ]
+      "sections": {
+        "cyber": [
+          "Engineered, designed, implemented, and deployed an IP-based pulse emitter radio mesh network system to emulate tactical Army ground force signals, enhancing cyber blue team deception operations.",
+          "With authorization, planned and executed “Grey Box” penetration testing.  Acquired access to internal systems with elevated privileges.  Reported findings to network administrators encouraging policy and security changes.",
+          "Deployed and managed SIEM (Security Information and Event Management) solutions using CentOS, Nessus, Splunk, and downtrace sensor integration, enhancing network threat detection and incident response capabilities across 4,000+ systems.",
+          "Provided Tier-3 network support at the Army Cyber Center Southwest Asia, coordinating high-priority regional issues, conducting root cause analysis, and ensuring mission-critical infrastructure remained in operation. Acted as a liaison between high command and vendors to ensure timely resolution of complex issues."
+        ],
+        "network": [
+          "Collaborated with network engineers to deploy and configure remote nodal networks, employing IPS/IDS sensors on edge devices, managed virtual configuration of enterprise-grade operating systems, deployed software-defined radio and other advanced solutions, enhancing system integration, security, and connectivity for remote mission-critical operations.",
+          "Diagnosed and resolved network-related software and hardware issues remotely, using advanced troubleshooting techniques to minimize downtime and maintain uptime. Ensured system stability and network performance optimization across environments.",
+          "Ensured compliance with host nation radio frequency spectrum regulations, telecommunication standards, and industry standards serving as the network engineer for terrestrial point-to-point systems, collaborating with cross-functional teams to integrate secure communication channels into seamless and encrypted data transmission across multiple countries and environments.",
+          "Engineered, optimized, and maintained long-distance point-to-point IP-based communication systems, ensuring secure, reliable, and efficient data transmission across various proprietary platforms. Integrated encryption protocols and network security measures to safeguard critical communication channels.",
+          "Engineered, programmed, and managed over 5,000 radio and IP-based communication systems, ensuring seamless connectivity and secure data transmission across global organizational assets. Designed communication infrastructure in compliance with regulatory guidelines and network security protocols.",
+          "Diagnosed and repaired hardware equipment to ensure operational efficiency. Leveraged troubleshooting with specialized tools and techniques that align with material management, maintenance, and support.",
+          "Performed system testing, calibration, and component repairs to meet technical and operational standards. Ensured functionality and compliance through detailed inspections and adjustments.",
+          "Upgraded system hardware and implemented replacements to meet evolving technical requirements. Enhanced system performance and reliability through proactive planning and execution through lifecycle management."
+        ],
+        "management": [
+          "Managed and administered Active Directory, overseeing user accounts, role-based access controls, and security policies for 2,000 users. Implemented role-based group policies, two-factor authentication, and network security measures to safeguard against unauthorized access and ensure operational security.",
+          "Developed and led training programs on terrestrial network configurations, system architecture integration, and operational usage. Empowered teams with the skills to optimize system performance while maintaining secure communications."
+        ]
+      }
     }
   ],
+  "github": {
+    "user": "Null-H3x",
+    "url": "https://github.com/Null-H3x",
+    "publicRepos": 6,
+    "repos": [
+      {
+        "name": "h3x-dash",
+        "url": "https://github.com/Null-H3x/h3x-dash",
+        "description": "Automated penetration testing dashboard — scan, enumerate, exploit, loot.",
+        "language": "Python",
+        "stars": 0,
+        "forks": 0
+      },
+      {
+        "name": "h3x-resume",
+        "url": "https://github.com/Null-H3x/h3x-resume",
+        "description": "H3x-Dash themed static resume site (this site).",
+        "language": "CSS",
+        "stars": 0,
+        "forks": 0
+      }
+    ]
+  },
   "skills": [
     {
       "category": "RISK, GOVERNANCE & COMPLIANCE",
@@ -230,7 +254,7 @@
       "year": "Feb 2025"
     },
     {
-      "name": "CEH — Certified Ethical Hacker",
+      "name": "CEH — Certified Ethical Hacker Course",
       "issuer": "EC-Council",
       "year": "Dec 2025"
     }
