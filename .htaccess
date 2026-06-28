@@ -8,7 +8,13 @@
   ExpiresActive On
   ExpiresByType text/css "access plus 1 week"
   ExpiresByType application/javascript "access plus 1 week"
-  ExpiresByType application/json "access plus 1 hour"
+  ExpiresByType application/json "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(json)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
 </IfModule>
 
 # Default document

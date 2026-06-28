@@ -403,6 +403,18 @@ section { scroll-margin-top: 4rem; margin-bottom: 2rem; }
 
 .btn-cyan:hover { background: rgba(15, 240, 252, .08); }
 
+.btn-violet {
+  border-color: var(--violet-bright);
+  color: var(--violet-bright);
+  background: rgba(154, 114, 196, .06);
+  box-shadow: 0 0 10px rgba(154, 114, 196, .1);
+}
+
+.btn-violet:hover {
+  background: rgba(154, 114, 196, .14);
+  text-shadow: 0 0 8px rgba(155, 48, 255, .35);
+}
+
 .btn-green {
   border-color: var(--green);
   color: var(--green);

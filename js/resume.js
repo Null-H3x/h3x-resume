@@ -13,6 +13,12 @@ const EXP_SECTIONS = [
   { key: 'management', label: 'MANAGEMENT' },
 ];
 
+/** Canonical sidebar buttons — not driven by resume.json links (avoids stale Bartunek.Tech). */
+const SIDEBAR_LINKS = [
+  { label: 'Email', icon: '✉', style: 'cyan', kind: 'email' },
+  { label: 'Github', icon: '◈', style: 'violet', kind: 'github', url: 'https://github.com/Null-H3x' },
+];
+
 const BOOT_DUMMY_LINES = [
   { text: '[H3x-Resume] Initializing candidate discovery protocol...', cls: 't-info' },
   { text: '[*] Mounting /dev/resume0 partition... OK', cls: 't-dim' },
@@ -276,12 +282,23 @@ function renderEducation(edu) {
   `).join('');
 }
 
+function sidebarLinksForProfile(profile) {
+  const email = profile?.email || 'Resume@Bartunek.Tech';
+  return SIDEBAR_LINKS.map(link => {
+    if (link.kind === 'email') {
+      return { ...link, url: `mailto:${email}` };
+    }
+    return { ...link };
+  });
+}
+
 function renderLinkButtons(el, links) {
   if (!el || !links?.length) return;
   el.innerHTML = links.map(l => {
     const external = !l.url.startsWith('mailto:');
     const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : '';
-    return `<a class="btn btn-cyan" href="${esc(l.url)}"${attrs}>
+    const btnClass = l.style === 'violet' ? 'btn-violet' : 'btn-cyan';
+    return `<a class="btn ${btnClass}" href="${esc(l.url)}"${attrs}>
       ${esc(l.icon || '◈')} ${esc(l.label)}
     </a>`;
   }).join('');
@@ -315,7 +332,7 @@ function renderProfile(data) {
   meta.innerHTML = parts.join(' · ');
 
   const sidebarLinks = document.getElementById('sidebar-links');
-  renderLinkButtons(sidebarLinks, p.links);
+  renderLinkButtons(sidebarLinks, sidebarLinksForProfile(p));
 
   const avail = document.getElementById('availability-val');
   if (avail) avail.textContent = p.availability || 'Available';
@@ -473,7 +490,7 @@ function initWizardGate() {
 
 async function loadResume() {
   try {
-    const res = await fetch('data/resume.json');
+    const res = await fetch('data/resume.json', { cache: 'no-store' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
     renderAll(data);
