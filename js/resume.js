@@ -463,6 +463,7 @@ function runBootSequence(onDone) {
   const wizard = document.getElementById('wizard-modal');
   const viewBtn = document.getElementById('boot-view');
   const exitBtn = document.getElementById('boot-exit');
+  const btnWrap = document.getElementById('boot-seq-btns');
   if (!overlay || !term) {
     onDone();
     return;
@@ -471,6 +472,7 @@ function runBootSequence(onDone) {
   if (wizard) wizard.hidden = true;
   overlay.hidden = false;
   term.innerHTML = '';
+  if (btnWrap) btnWrap.hidden = true;
 
   const totalMs = 8000;
   const lines = BOOT_DUMMY_LINES;
@@ -478,6 +480,7 @@ function runBootSequence(onDone) {
   let i = 0;
   let bootTimer = null;
   let finished = false;
+  let awaitingChoice = false;
 
   function finishBoot() {
     if (finished) return;
@@ -494,6 +497,13 @@ function runBootSequence(onDone) {
     term.scrollTop = term.scrollHeight;
   }
 
+  function awaitBootChoice() {
+    if (awaitingChoice) return;
+    awaitingChoice = true;
+    appendLine({ text: '[H3x-Resume] Awaiting operator input... VIEW or EXIT', cls: 't-warn' });
+    if (btnWrap) btnWrap.hidden = false;
+  }
+
   viewBtn?.addEventListener('click', finishBoot, { once: true });
   exitBtn?.addEventListener('click', () => {
     window.location.href = WIZARD_EXIT_URL;
@@ -503,7 +513,7 @@ function runBootSequence(onDone) {
     if (i >= lines.length) {
       clearInterval(bootTimer);
       bootTimer = null;
-      setTimeout(finishBoot, 400);
+      awaitBootChoice();
       return;
     }
     appendLine(lines[i]);
