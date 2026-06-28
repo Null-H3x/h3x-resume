@@ -448,20 +448,20 @@ section { scroll-margin-top: 4rem; margin-bottom: 2rem; }
 .exp-period {
   margin-left: auto;
   font-size: 10px;
-  color: var(--muted);
+  color: var(--exp-muted, var(--muted));
   letter-spacing: .1em;
 }
 
 .exp-summary {
   font-size: 12px;
-  color: var(--text);
+  color: var(--exp-body, var(--text));
   margin-bottom: .75rem;
 }
 
 .exp-highlights {
   list-style: none;
   font-size: 11px;
-  color: var(--text);
+  color: var(--exp-body, var(--text));
 }
 
 .exp-highlights li {
@@ -483,8 +483,17 @@ section { scroll-margin-top: 4rem; margin-bottom: 2rem; }
 
 .exp-subsection:first-of-type { margin-top: .5rem; }
 
+#experience {
+  --exp-body: #e8f0f6;
+  --exp-muted: #e8f0f6;
+}
+
+#tenure-panel {
+  --exp-body: #e8f0f6;
+  --exp-muted: #e8f0f6;
+}
+
 .exp-subsection .exp-highlights {
-  color: #e8f0f6;
   font-size: 12px;
   line-height: 1.65;
 }
@@ -940,7 +949,7 @@ body.boot-locked .app-shell {
 
 .tenure-label {
   font-size: 10px;
-  color: var(--muted);
+  color: var(--exp-muted, var(--muted));
   letter-spacing: .08em;
   line-height: 1.4;
 }
@@ -951,15 +960,18 @@ body.boot-locked .app-shell {
   line-height: 1.5;
 }
 
-.tenure-note-mark {
-  color: #ffd84d;
+.tenure-note .tenure-note-mark {
+  color: #ffdd44;
   font-weight: 700;
+  text-decoration: none;
+  text-shadow: 0 0 8px rgba(255, 221, 68, .45);
 }
 
-.tenure-note-text {
-  color: #ffd84d;
+.tenure-note .tenure-note-text {
+  color: #ffdd44;
   text-decoration: underline;
   text-underline-offset: 2px;
+  text-shadow: 0 0 6px rgba(255, 221, 68, .25);
 }
 
 /* Sidebar backdrop (mobile) */
