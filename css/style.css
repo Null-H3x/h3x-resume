@@ -134,57 +134,40 @@ body {
 
 .nav-icon { width: 16px; text-align: center; font-size: 14px; }
 
-.status-badge {
-  margin: 0;
-  padding: .5rem .75rem;
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  font-size: 10px;
-}
-
 .sidebar-footer {
   margin: auto 1rem 1rem;
   display: flex;
   flex-direction: column;
-  gap: .65rem;
+  gap: .75rem;
 }
 
-.status-badge .badge-label { color: var(--muted); letter-spacing: .15em; }
-.status-badge .badge-val { color: var(--green); margin-top: 2px; line-height: 1.35; }
-
-.status-badge-contact {
-  border-color: var(--green);
-  background: rgba(57, 255, 20, .06);
-  box-shadow: 0 0 12px rgba(57, 255, 20, .1);
+.sidebar-links {
+  flex-direction: column;
+  margin-top: 0;
+  gap: .5rem;
 }
 
-.status-badge-contact .badge-val-link a {
-  color: var(--green);
-  text-decoration: none;
-  word-break: break-all;
-  display: inline-block;
-  padding: .15rem .35rem;
-  border: 1px solid var(--green);
-  border-radius: 3px;
-  background: rgba(57, 255, 20, .04);
+.sidebar-links .btn {
+  width: 100%;
+  justify-content: center;
 }
 
-.status-badge-contact .badge-val-link a:hover {
-  text-decoration: none;
-  background: rgba(57, 255, 20, .1);
-  text-shadow: 0 0 8px rgba(57, 255, 20, .35);
+.sidebar-status {
+  padding: .5rem .75rem;
+  text-align: center;
 }
 
-.status-badge .badge-val-github a {
-  color: var(--violet-bright);
-  text-decoration: none;
+.sidebar-status-label {
+  font-size: 10px;
+  letter-spacing: .15em;
+  color: #fff;
 }
 
-.status-badge .badge-val-github a:hover {
-  color: var(--violet);
-  text-decoration: underline;
-  text-shadow: 0 0 8px rgba(155, 48, 255, .35);
+.sidebar-status-val {
+  margin-top: .25rem;
+  font-size: 11px;
+  color: #fff;
+  line-height: 1.35;
 }
 
 /* ── Main ────────────────────────────────────────────────────────────────── */

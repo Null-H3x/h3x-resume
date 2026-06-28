@@ -276,6 +276,17 @@ function renderEducation(edu) {
   `).join('');
 }
 
+function renderLinkButtons(el, links) {
+  if (!el || !links?.length) return;
+  el.innerHTML = links.map(l => {
+    const external = !l.url.startsWith('mailto:');
+    const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : '';
+    return `<a class="btn btn-cyan" href="${esc(l.url)}"${attrs}>
+      ${esc(l.icon || '◈')} ${esc(l.label)}
+    </a>`;
+  }).join('');
+}
+
 function renderProfile(data) {
   const p = data.profile;
   if (!p) return;
@@ -303,14 +314,8 @@ function renderProfile(data) {
   if (p.email) parts.push(`✉ <a href="mailto:${esc(p.email)}">${esc(p.email)}</a>`);
   meta.innerHTML = parts.join(' · ');
 
-  const links = document.getElementById('profile-links');
-  if (links && p.links?.length) {
-    links.innerHTML = p.links.map(l =>
-      `<a class="btn btn-cyan" href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">
-        ${esc(l.icon || '◈')} ${esc(l.label)}
-      </a>`
-    ).join('');
-  }
+  const sidebarLinks = document.getElementById('sidebar-links');
+  renderLinkButtons(sidebarLinks, p.links);
 
   const avail = document.getElementById('availability-val');
   if (avail) avail.textContent = p.availability || 'Available';

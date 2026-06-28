@@ -13,9 +13,9 @@
         "icon": "✉"
       },
       {
-        "label": "Bartunek.Tech",
-        "url": "https://Bartunek.Tech",
-        "icon": "◉"
+        "label": "GitHub",
+        "url": "https://github.com/Null-H3x",
+        "icon": "◈"
       }
     ],
     "location": "USA, Europe, Asia"
@@ -167,7 +167,7 @@
     {
       "category": "INFRASTRUCTURE & ADMINISTRATION",
       "items": [
-        "Exchange Email hosting and exchange services (Bartunek.Tech)",
+        "Exchange Email hosting and exchange services",
         "VMware vSphere (Virtual Machine Management)",
         "Mobile Device Management (MDM)",
         "PC & Server Building",

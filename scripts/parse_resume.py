@@ -164,13 +164,8 @@ def build_json(paras: list[str]) -> dict:
     data["profile"]["availability"] = "Open to opportunities"
     data["profile"]["links"] = [
         {"label": "Email", "url": f"mailto:{email}", "icon": "✉"},
+        {"label": "GitHub", "url": "https://github.com/Null-H3x", "icon": "◈"},
     ]
-    if "bartunek.tech" in email.lower():
-        data["profile"]["links"].append({
-            "label": "Bartunek.Tech",
-            "url": "https://Bartunek.Tech",
-            "icon": "◈",
-        })
 
     sections: dict[str, list[str]] = {}
     current = None
