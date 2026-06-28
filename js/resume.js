@@ -182,89 +182,6 @@ function renderSkills(skills) {
   `).join('');
 }
 
-function renderGithubStatic(gh) {
-  const el = document.getElementById('github-panel');
-  if (!el || !gh) {
-    if (el) el.innerHTML = '';
-    return;
-  }
-
-  const repos = gh.repos || [];
-  el.innerHTML = `
-    <div class="github-block">
-      <div class="github-block-head">
-        <div class="github-user">
-          <a href="${esc(gh.url)}" target="_blank" rel="noopener noreferrer">◈ ${esc(gh.user)} ↗</a>
-        </div>
-      </div>
-      <div class="github-stats-row" id="github-stats-row">
-        <span class="github-stat">PUBLIC REPOS: <strong>${esc(String(gh.publicRepos ?? repos.length))}</strong></span>
-      </div>
-      <div id="github-repos-list">
-        ${repos.map(r => `
-          <div class="github-repo">
-            <div class="github-repo-name">
-              <a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.name)} ↗</a>
-            </div>
-            ${r.description ? `<div class="github-repo-meta">${esc(r.description)}</div>` : ''}
-            <div class="github-repo-meta">
-              ${r.language ? `LANG: ${esc(r.language)} · ` : ''}★ ${esc(String(r.stars ?? 0))} · ⑂ ${esc(String(r.forks ?? 0))}
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    </div>`;
-}
-
-async function refreshGithubLive(gh) {
-  if (!gh?.user) return;
-  try {
-    const [userRes, ...repoRes] = await Promise.all([
-      fetch(`https://api.github.com/users/${gh.user}`),
-      ...(gh.repos || []).map(r =>
-        fetch(`https://api.github.com/repos/${gh.user}/${r.name}`)
-      ),
-    ]);
-    if (userRes.ok) {
-      const user = await userRes.json();
-      const statsEl = document.getElementById('github-stats-row');
-      if (statsEl) {
-        statsEl.innerHTML = `
-          <span class="github-stat">PUBLIC REPOS: <strong>${esc(String(user.public_repos))}</strong></span>
-          <span class="github-stat">FOLLOWERS: <strong>${esc(String(user.followers))}</strong></span>`;
-      }
-    }
-    const listEl = document.getElementById('github-repos-list');
-    if (!listEl) return;
-    const updated = await Promise.all(
-      (gh.repos || []).map(async (r, i) => {
-        const res = repoRes[i];
-        if (!res?.ok) return r;
-        const live = await res.json();
-        return {
-          ...r,
-          stars: live.stargazers_count,
-          forks: live.forks_count,
-          language: live.language || r.language,
-        };
-      })
-    );
-    listEl.innerHTML = updated.map(r => `
-      <div class="github-repo">
-        <div class="github-repo-name">
-          <a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.name)} ↗</a>
-        </div>
-        ${r.description ? `<div class="github-repo-meta">${esc(r.description)}</div>` : ''}
-        <div class="github-repo-meta">
-          ${r.language ? `LANG: ${esc(r.language)} · ` : ''}★ ${esc(String(r.stars ?? 0))} · ⑂ ${esc(String(r.forks ?? 0))}
-        </div>
-      </div>
-    `).join('');
-  } catch {
-    /* keep static fallback */
-  }
-}
-
 function renderCerts(certs) {
   const el = document.getElementById('certs-list');
   if (!el) return;
@@ -290,7 +207,7 @@ function renderEducation(edu) {
   }
   el.innerHTML = edu.map(e => `
     <div class="edu-row">
-      <span class="cert-name">${esc(e.degree)}</span>
+      <span class="edu-degree">${esc(e.degree)}</span>
       <span class="cert-issuer">${esc(e.school)}</span>
       <span class="cert-year">${esc(e.period)}</span>
     </div>
@@ -344,11 +261,9 @@ function renderAll(data) {
   renderTerminal(data.terminalIntro);
   renderTenure(data.experienceSummary, data.experienceHours);
   renderExperience(data.experience);
-  renderGithubStatic(data.github);
   renderSkills(data.skills);
   renderCerts(data.certifications);
   renderEducation(data.education);
-  refreshGithubLive(data.github);
 }
 
 function initScrollSpy() {
@@ -371,7 +286,7 @@ function initScrollSpy() {
 
   links.forEach(link => {
     link.addEventListener('click', () => {
-      document.getElementById('sidebar')?.classList.remove('open');
+      setSidebarOpen(false);
     });
   });
 }
@@ -387,11 +302,25 @@ function initClock() {
   setInterval(tick, 1000);
 }
 
+function setSidebarOpen(open) {
+  const sidebar = document.getElementById('sidebar');
+  const backdrop = document.getElementById('sidebar-backdrop');
+  if (!sidebar) return;
+  sidebar.classList.toggle('open', open);
+  if (backdrop) backdrop.classList.toggle('visible', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+}
+
 function initMenuToggle() {
   const btn = document.getElementById('menu-toggle');
   const sidebar = document.getElementById('sidebar');
+  const backdrop = document.getElementById('sidebar-backdrop');
   if (!btn || !sidebar) return;
-  btn.addEventListener('click', () => sidebar.classList.toggle('open'));
+  btn.addEventListener('click', () => setSidebarOpen(!sidebar.classList.contains('open')));
+  backdrop?.addEventListener('click', () => setSidebarOpen(false));
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) setSidebarOpen(false);
+  });
 }
 
 function unlockPage() {

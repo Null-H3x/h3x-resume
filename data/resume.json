@@ -13,11 +13,6 @@
         "icon": "✉"
       },
       {
-        "label": "GitHub",
-        "url": "https://github.com/Null-H3x",
-        "icon": "◈"
-      },
-      {
         "label": "Bartunek.Tech",
         "url": "https://Bartunek.Tech",
         "icon": "◉"
@@ -117,29 +112,6 @@
       }
     }
   ],
-  "github": {
-    "user": "Null-H3x",
-    "url": "https://github.com/Null-H3x",
-    "publicRepos": 6,
-    "repos": [
-      {
-        "name": "h3x-dash",
-        "url": "https://github.com/Null-H3x/h3x-dash",
-        "description": "Automated penetration testing dashboard — scan, enumerate, exploit, loot.",
-        "language": "Python",
-        "stars": 0,
-        "forks": 0
-      },
-      {
-        "name": "h3x-resume",
-        "url": "https://github.com/Null-H3x/h3x-resume",
-        "description": "H3x-Dash themed static resume site (this site).",
-        "language": "CSS",
-        "stars": 0,
-        "forks": 0
-      }
-    ]
-  },
   "skills": [
     {
       "category": "RISK, GOVERNANCE & COMPLIANCE",
