@@ -164,7 +164,7 @@ def build_json(paras: list[str]) -> dict:
     data["profile"]["availability"] = "Open to opportunities"
     data["profile"]["links"] = [
         {"label": "Email", "url": f"mailto:{email}", "icon": "✉"},
-        {"label": "GitHub", "url": "https://github.com/Null-H3x", "icon": "◈"},
+        {"label": "Github", "url": "https://github.com/Null-H3x", "icon": "◈"},
     ]
 
     sections: dict[str, list[str]] = {}
