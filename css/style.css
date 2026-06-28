@@ -901,6 +901,41 @@ body.boot-locked .app-shell {
 .cert-issuer { color: var(--cyan); }
 .cert-year { margin-left: auto; color: var(--muted); font-size: 10px; }
 
+.hobbies-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+}
+
+.hobby-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .5rem .85rem;
+  border-radius: 4px;
+  border: 1px solid var(--border2);
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background .15s, box-shadow .15s, text-shadow .15s;
+}
+
+.hobby-link-spotify {
+  color: #1db954;
+  border-color: #1db954;
+  background: rgba(29, 185, 84, .06);
+  box-shadow: 0 0 10px rgba(29, 185, 84, .08);
+}
+
+.hobby-link-spotify:hover {
+  background: rgba(29, 185, 84, .14);
+  text-shadow: 0 0 8px rgba(29, 185, 84, .35);
+}
+
+.hobby-icon {
+  flex-shrink: 0;
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
