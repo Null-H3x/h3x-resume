@@ -152,21 +152,26 @@ body {
   justify-content: center;
 }
 
-.sidebar-status {
-  padding: .5rem .75rem;
+.sidebar-status.btn-green {
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: .5rem 1rem;
+  cursor: default;
   text-align: center;
 }
 
 .sidebar-status-label {
   font-size: 10px;
   letter-spacing: .15em;
-  color: #fff;
+  color: var(--green);
 }
 
 .sidebar-status-val {
   margin-top: .25rem;
   font-size: 11px;
-  color: #fff;
+  color: var(--green);
   line-height: 1.35;
 }
 
@@ -179,6 +184,8 @@ body {
   width: calc(100% - 220px);
   display: flex;
   flex-direction: column;
+  --text: #e2eaf0;
+  --muted: #9cabb8;
 }
 
 .topbar {
@@ -936,6 +943,23 @@ body.boot-locked .app-shell {
   color: var(--muted);
   letter-spacing: .08em;
   line-height: 1.4;
+}
+
+.tenure-note {
+  margin-top: 1rem;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.tenure-note-mark {
+  color: #ffd84d;
+  font-weight: 700;
+}
+
+.tenure-note-text {
+  color: #ffd84d;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 /* Sidebar backdrop (mobile) */
