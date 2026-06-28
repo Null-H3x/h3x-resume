@@ -921,15 +921,15 @@ body.boot-locked .app-shell {
 }
 
 .hobby-link-spotify {
-  color: #1db954;
-  border-color: #1db954;
-  background: rgba(29, 185, 84, .06);
-  box-shadow: 0 0 10px rgba(29, 185, 84, .08);
+  color: var(--green);
+  border-color: var(--green);
+  background: rgba(57, 255, 20, .06);
+  box-shadow: 0 0 10px rgba(57, 255, 20, .08);
 }
 
 .hobby-link-spotify:hover {
-  background: rgba(29, 185, 84, .14);
-  text-shadow: 0 0 8px rgba(29, 185, 84, .35);
+  background: rgba(57, 255, 20, .08);
+  text-shadow: 0 0 8px rgba(57, 255, 20, .35);
 }
 
 .hobby-icon {
